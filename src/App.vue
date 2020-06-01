@@ -1,28 +1,43 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <AppNavigation></AppNavigation>
+    <router-view id="view"></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppNavigation from "@/components/AppNavigation";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AppNavigation
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  #view {
+    height: 100%;
+    /*background-image: linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)), url('./assets/code-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;*/
+    background: #616161;
+  }
+
+  #app {
+    height: 100%;
+  }
+
 </style>
