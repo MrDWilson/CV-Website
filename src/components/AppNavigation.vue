@@ -58,10 +58,12 @@
         overflow: auto;
         width: 100%;
         height: 50px;
-        background: #424242;
+        background: transparent;
         text-align: center;
         margin: auto;
-        position: relative;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
     }
 
     .navbar ul {
@@ -80,7 +82,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
+        color: var(--text-primary-colour);
         cursor: pointer;
     }
 
@@ -100,7 +102,7 @@
         width: 0;
         content: '.';
         color: transparent;
-        background: cyan;
+        background: var(--text-primary-hover-colour);
         height: 1px;
     }
     .navbar ul li:hover:after,
@@ -116,7 +118,7 @@
     }
     .navbar ul li:hover,
     #home-button:hover {
-        color: cyan;
+        color: var(--text-primary-hover-colour);
     }
 
     #home-button {
@@ -126,14 +128,14 @@
         padding: 0 10px;
         vertical-align: middle;
         text-decoration: none;
-        color: white;
+        color: var(--text-primary-colour);
         cursor: pointer;
         position: absolute;
         left: 5px;
     }
 
     #home-button:hover {
-        color: cyan;
+        color: var(--text-primary-hover-colour);
     }
 
 </style>

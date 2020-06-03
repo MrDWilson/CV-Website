@@ -19,6 +19,7 @@ export default {
 <style>
 
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
+  @import './assets/generic.css';
 
   html, body {
     margin: 0 !important;
