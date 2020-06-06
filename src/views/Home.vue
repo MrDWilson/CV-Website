@@ -2,14 +2,9 @@
     <div>
         <full-page ref="fullpage" :options="options" id="fullpage">
             <div class="section" id="landing">
-                <div id="whoiam">
-                    <h1>Danny Wilson</h1>
-                    <h2>Software Engineer</h2>
-                </div>
-                <div id="aboutme">
-                    <p>
-                        Hi, I'm Danny, a developer with a passion for all things tech
-                    </p>
+                <div id="landing-content" class="page-content">
+                    <h1>DANNY WILSON</h1>
+                    <h4>Software Engineer</h4>
                 </div>
             </div>
             <div class="section">My Experience</div>
@@ -29,18 +24,8 @@
         data() {
             return {
                 options: {
-                    //sectionsColor:
-                    //    [
-                    //        'black',
-                    //        '#e5e6e6',
-                    //        '#d8dada',
-                    //        '#cbcdcd',
-                    //        '#bec1c1',
-                    //        '#b1b4b4',
-                    //        '#a4a8a8',
-                    //        '#979b9b'
-                    //    ],
-                    navigation: true
+                    navigation: true,
+                    parallax: true
                 }
             }
         }
@@ -61,21 +46,35 @@
         font-size: 50px;
     }
 
-    #landing h1, h2, p {
+    #landing h1, h4 {
         padding: 0;
         margin: 0;
+        text-shadow: 0 0.3rem 0.9rem rgba(0,0,0,.4);
+        color: white;
     }
 
-    #whoiam {
-        position: fixed;
-        padding-top: 100px;
-        top: 0;
-        text-align: center;
-        width: 100%;
+    #landing {
+        background-image: url("../assets/laptopbackblur.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
 
-    #aboutme {
-        padding-top: 50px;
+    .page-content {
+        padding: 0px 50px;
     }
+
+    @media only screen and (max-width: 1000px) {
+        #landing h1, h4 {
+            font-size: 90%;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        #landing h1, h4 {
+            font-size: 60%;
+        }
+    }
+
 
 </style>

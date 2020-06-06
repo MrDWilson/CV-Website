@@ -1,16 +1,28 @@
 <template>
     <div class="navbar">
-        <router-link id="home-button" to="/">DW</router-link>
-        <ul v-for="item in items" :key="item.title" @click="link_clicked(item.route)">
-            <li>
-                {{item.title}}
-            </li>
-        </ul>
+        <div class="navbar-wrapper">
+            <div class="navbar-backdrop"></div>
+            <router-link id="home-button" to="/">DW</router-link>
+            <hamburger-menu id="hamburger-menu">
+            </hamburger-menu>
+            <div class="navbar-list">
+                <ul v-for="item in items" :key="item.title" @click="link_clicked(item.route)">
+                    <li>
+                        {{item.title}}
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+    import HamburgerMenu from "@/components/HamburgerMenu";
+
     export default {
+        components: {
+            HamburgerMenu
+        },
         name: "AppNavigation",
         methods: {
             link_clicked(link) {
@@ -57,36 +69,74 @@
     .navbar {
         overflow: auto;
         width: 100%;
-        height: 50px;
         background: transparent;
         text-align: center;
         margin: auto;
         position: fixed;
         top: 0;
         z-index: 1000;
+        text-shadow: 0 0.3rem 0.9rem rgba(0,0,0,.4);
+        font-size: 20px;
+        height: 65px;
     }
 
     .navbar ul {
         list-style: none;
-        height: 100%;
         margin: auto;
-        padding: 0;
         display: inline-block;
+        height: 100%
     }
 
-    .navbar li {
+    .navbar li, #home-button, hamburger-menu {
         height: 100%;
-        padding: 0 10px;
         vertical-align: middle;
         text-decoration: none;
         display: flex;
         align-items: center;
-        justify-content: center;
         color: var(--text-primary-colour);
         cursor: pointer;
     }
 
-    /* Hover effects */
+    .navbar-backdrop {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        filter: blur(10px) opacity(20%);
+        background: #222222;
+    }
+
+    .navbar-wrapper {
+        position: relative;
+        height: 100%;
+    }
+
+    #home-button {
+        position: absolute;
+        left: 25px;
+    }
+
+    .navbar-list {
+        height: 100%;
+    }
+
+    #hamburger-menu {
+        display: none;
+    }
+
+    @media screen and (max-width: 1000px) {
+        #hamburger-menu {
+            display: block;
+        }
+        .navbar-list {
+            display: none;
+        }
+
+        .navbar {
+            height: 60px;
+        }
+    }
+
+    /********************************************* Hover effects *******************************************/
 
     .navbar ul li
     {
@@ -95,19 +145,19 @@
     .navbar ul li:after,
     #home-button:after {
         position: absolute;
-        bottom: 10px;
+        bottom: 15px;
         left: 0;
         right: 0;
         margin: auto;
         width: 0;
         content: '.';
         color: transparent;
-        background: var(--text-primary-hover-colour);
+        background: var(--text-primary-colour);
         height: 1px;
     }
     .navbar ul li:hover:after,
     #home-button:hover:after {
-        width: 85%;
+        width: 100%;
     }
 
     .navbar ul li:before,
@@ -115,27 +165,6 @@
     #home-button:before,
     #home-button:after {
         transition: all .5s;
-    }
-    .navbar ul li:hover,
-    #home-button:hover {
-        color: var(--text-primary-hover-colour);
-    }
-
-    #home-button {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        padding: 0 10px;
-        vertical-align: middle;
-        text-decoration: none;
-        color: var(--text-primary-colour);
-        cursor: pointer;
-        position: absolute;
-        left: 5px;
-    }
-
-    #home-button:hover {
-        color: var(--text-primary-hover-colour);
     }
 
 </style>
