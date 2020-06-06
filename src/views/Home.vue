@@ -3,7 +3,7 @@
         <full-page ref="fullpage" :options="options" id="fullpage">
             <div class="section" id="landing">
                 <div id="landing-content" class="page-content">
-                    <h1>DANNY WILSON</h1>
+                    <h1>DANNY WILSON DW</h1>
                     <h4>Software Engineer</h4>
                 </div>
             </div>
